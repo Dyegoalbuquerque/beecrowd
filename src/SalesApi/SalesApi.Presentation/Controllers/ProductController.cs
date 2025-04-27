@@ -25,7 +25,7 @@ public class ProductController : ControllerBase
         {
             data = result.Data,
             status = "success",
-            message = "Operation completed successfully"
+            message = "Products retrieved successfully"
         });
     }
 
@@ -35,10 +35,10 @@ public class ProductController : ControllerBase
         var result = await _mediator.Send(command);
         if (!result.Success)
         {
-            return BadRequest(new { data = result.Errors, status = "fail", message = "Product creation failed" });
+            return BadRequest(new { error = result.Errors, status = "fail", message = "Product creation failed" });
         }
         
-        return CreatedAtAction(nameof(GetAllProducts), new { id = result.Data.Id }, new
+        return CreatedAtAction(nameof(CreateProduct), new { id = result.Data.Id }, new
         {
             data = result.Data,
             status = "success",

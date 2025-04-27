@@ -4,14 +4,23 @@
 		"name": "Sales API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "44474284",
-		"_collection_link": "https://galactic-rocket-173986.postman.co/workspace/fe2fe9c4-b220-47ea-8f6e-4eaaf5112c74/collection/44474284-4e9a4ce6-8558-4ff4-9a9a-cdbf0c4d95a9?action=share&source=collection_link&creator=44474284"
+		"_collection_link": "https://galactic-rocket-173986.postman.co/workspace/New-Team-Workspace~fe2fe9c4-b220-47ea-8f6e-4eaaf5112c74/collection/44474284-4e9a4ce6-8558-4ff4-9a9a-cdbf0c4d95a9?action=share&source=collection_link&creator=44474284"
 	},
 	"item": [
 		{
 			"name": "Cancel sale",
 			"request": {
-				"method": "PATCH",
+				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "{{Adress gateway}}/sale/b67e616a-3b17-4287-bce0-50780c6c7b30",
 					"host": [
@@ -134,6 +143,12 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Sales API",
+			"value": "http://localhost:7777"
 		}
 	]
 }

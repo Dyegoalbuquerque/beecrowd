@@ -31,7 +31,7 @@ public class SaleController : ControllerBase
         var result = await _mediator.Send(command);
         if (!result.Success)
         {
-            return BadRequest(new { data = result.Errors, status = "fail", message = "Sale creation failed" });
+            return BadRequest(new { error = result.Errors, status = "fail", message = "Sale creation failed" });
         }
 
         return CreatedAtAction(nameof(CreateSale), new { id = result.Data.Id }, new
@@ -43,15 +43,15 @@ public class SaleController : ControllerBase
     }
 
 
-    [HttpPatch("{id}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> CancelSale(Guid id)
     {
         var result = await _mediator.Send(new CancelSaleCommand { Id = id });
         if (!result.Success)
         {
-            return NotFound(new { data = result.Errors, status = "fail", message = "Sale cancellation failed" });
+            return NotFound(new { error = result.Errors, status = "fail", message = "Sale cancellation failed" });
         }
 
-        return Ok(new { data = result.Success, status = "success", message = "Sale cancellation successfully" });
+        return Ok(new { status = "success", message = "Sale cancelled successfully" });
     }
 }

@@ -34,7 +34,7 @@
         }
       ],
       "UpstreamPathTemplate": "/sale/{id}",
-      "UpstreamHttpMethod": ["PATCH"]
+      "UpstreamHttpMethod": ["DELETE"]
     }
   ],
   "GlobalConfiguration": {

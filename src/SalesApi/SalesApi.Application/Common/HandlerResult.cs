@@ -15,7 +15,7 @@ public class HandlerResult<T>
     public bool Success { get; set; }
     public string Message { get; set; }
     public T? Data { get; set; }
-    public IEnumerable<object>? Errors => _validationFailures?.Select(error => new { Field = error.PropertyName, Message = error.ErrorMessage });
+    public IEnumerable<object>? Errors => _validationFailures?.Select(error => new { Error = error.PropertyName, Detail = error.ErrorMessage });
     private IEnumerable<ValidationFailure>? _validationFailures;
 }
 
