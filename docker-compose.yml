@@ -27,7 +27,8 @@ services:
     ports:
       - "8090:8090"
     environment:
-      - ConnectionStrings__SalesApiDb=Host=db;Database=SalesApiDb;Username=postgres;Password=admin
+      - ConnectionStrings__SalesApiDb=Host=db;Database=SalesApi;Username=postgres;Password=postgres#2025@;Port=5432
+
     networks:
       - evaluation-network
     tty: true
@@ -36,11 +37,11 @@ services:
     image: postgres:latest
     container_name: db
     environment:
-      POSTGRES_DB: SalesApiDb
+      POSTGRES_DB: SalesApi
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: admin
+      POSTGRES_PASSWORD: postgres#2025@
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - evaluation-network
 
