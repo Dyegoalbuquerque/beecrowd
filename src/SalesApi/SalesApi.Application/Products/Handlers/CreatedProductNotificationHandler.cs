@@ -4,11 +4,11 @@ using SalesApi.Application.Products.Notifications;
 
 namespace SalesApi.Application.Products.Handlers;
 
-public class ProductCreatedNotificationHandler : INotificationHandler<ProductCreatedNotification>
+public class CreatedProductNotificationHandler : INotificationHandler<ProductCreatedNotification>
 {
-    private readonly ILogger<ProductCreatedNotificationHandler> _logger;
+    private readonly ILogger<CreatedProductNotificationHandler> _logger;
 
-    public ProductCreatedNotificationHandler(ILogger<ProductCreatedNotificationHandler> logger)
+    public CreatedProductNotificationHandler(ILogger<CreatedProductNotificationHandler> logger)
     {
         _logger = logger;
     }

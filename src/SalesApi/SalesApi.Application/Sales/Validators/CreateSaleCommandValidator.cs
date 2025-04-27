@@ -23,7 +23,7 @@ namespace SalesApi.Application.Sales.Validators
 
             RuleFor(sale => sale.CustomerName)
                 .NotEmpty().WithMessage("Customer name is required.")
-                .Length(3, 50).WithMessage("Customer name must be between 3 and 50 characters.");
+                .Length(3, 150).WithMessage("Customer name must be between 3 and 150 characters.");
 
             RuleFor(sale => sale.Items)
                 .NotEmpty().WithMessage("Sale must have at least one item.");

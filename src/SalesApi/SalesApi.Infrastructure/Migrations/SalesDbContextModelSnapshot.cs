@@ -71,8 +71,8 @@ namespace SalesApi.Infrastructure.Migrations
 
                     b.Property<string>("CustomerName")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
@@ -82,8 +82,8 @@ namespace SalesApi.Infrastructure.Migrations
 
                     b.Property<string>("Nummber")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<decimal>("TaxValue")
                         .HasPrecision(18, 2)
@@ -114,8 +114,8 @@ namespace SalesApi.Infrastructure.Migrations
 
                             b1.Property<string>("ProductName")
                                 .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("character varying(100)");
+                                .HasMaxLength(150)
+                                .HasColumnType("character varying(150)");
 
                             b1.Property<int>("Quantity")
                                 .HasColumnType("integer");

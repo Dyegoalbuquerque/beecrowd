@@ -36,9 +36,6 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-
-
-
 app.UseAuthorization();
 
 app.MapControllers();

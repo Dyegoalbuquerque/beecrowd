@@ -18,9 +18,9 @@ public class SalesDbContext : DbContext
         modelBuilder.Entity<Sale>(sale =>
         {
             sale.HasKey(s => s.Id);
-            sale.Property(s => s.Nummber).IsRequired().HasMaxLength(50);
+            sale.Property(s => s.Nummber).IsRequired().HasMaxLength(100);
             sale.Property(s => s.CustomerId).IsRequired().HasMaxLength(50);
-            sale.Property(s => s.CustomerName).IsRequired().HasMaxLength(100);
+            sale.Property(s => s.CustomerName).IsRequired().HasMaxLength(150);
             sale.Property(s => s.Date).IsRequired();
             sale.Property(s => s.TotalAmount).HasPrecision(18, 2);
             sale.Property(s => s.Branch).HasMaxLength(50);
@@ -32,7 +32,7 @@ public class SalesDbContext : DbContext
                 item.WithOwner();
                 item.Property(i => i.Id).IsRequired();
                 item.Property(i => i.ProductId).IsRequired();
-                item.Property(i => i.ProductName).IsRequired().HasMaxLength(100);
+                item.Property(i => i.ProductName).IsRequired().HasMaxLength(150);
                 item.Property(i => i.Quantity).IsRequired();
                 item.Property(i => i.UnitPrice).HasPrecision(18, 2).IsRequired();
                 item.Property(i => i.TotalAmount).HasPrecision(18, 2).IsRequired();
