@@ -1,18 +1,6 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/sale",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "sales-api",
-          "Port": 8090
-        }
-      ],
-      "UpstreamPathTemplate": "/sale",
-      "UpstreamHttpMethod": [ "GET", "POST", "PATCH" ]
-    },
-    {
       "DownstreamPathTemplate": "/api/product",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -22,7 +10,31 @@
         }
       ],
       "UpstreamPathTemplate": "/product",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
+      "UpstreamHttpMethod": ["POST", "GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/sale",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "sales-api",
+          "Port": 8090
+        }
+      ],
+      "UpstreamPathTemplate": "/sale",
+      "UpstreamHttpMethod": ["POST", "GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/sale/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "sales-api",
+          "Port": 8090
+        }
+      ],
+      "UpstreamPathTemplate": "/sale/{id}",
+      "UpstreamHttpMethod": ["PATCH"]
     }
   ],
   "GlobalConfiguration": {
