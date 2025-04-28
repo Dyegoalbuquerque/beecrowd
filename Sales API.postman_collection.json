@@ -22,13 +22,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{Adress gateway}}/sale/b67e616a-3b17-4287-bce0-50780c6c7b30",
+					"raw": "{{Adress gateway}}/sale/dd8a8ff6-40da-4443-9d90-0a0acdeae587",
 					"host": [
 						"{{Adress gateway}}"
 					],
 					"path": [
 						"sale",
-						"b67e616a-3b17-4287-bce0-50780c6c7b30"
+						"dd8a8ff6-40da-4443-9d90-0a0acdeae587"
 					]
 				}
 			},
@@ -70,7 +70,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"customerId\": \"f47ac10b-58cc-4372-a567-0e02b2c3d479\",\r\n  \"customerName\": \"João Silva\",\r\n  \"branchId\": \"c9bf9e57-1685-4c89-bafb-ff5af830d4f6\",\r\n  \"branch\": \"Filial Central\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": \"9a0e1a5d-90e6-4a36-8c89-7b6fb87b5c63\",\r\n      \"productName\": \"Teclado Mecânico RGB\",\r\n      \"quantity\": 1,\r\n      \"unitPrice\": 350.00\r\n    },\r\n    {\r\n      \"productId\": \"4b1b62f5-a69b-4da6-b45b-1a683b96c49b\",\r\n      \"productName\": \"Mouse Gamer Wireless\",\r\n      \"quantity\": 2,\r\n      \"unitPrice\": 200.00\r\n    }\r\n  ]\r\n}\r\n",
+					"raw": "\r\n  {\r\n    \"saleNumber\": \"4582\",\r\n    \"saleDate\": \"2025-04-28T01:00:36.330Z\",\r\n    \"customerId\": \"b3fc6f85-6b75-40a0-869d-8a2cfe9e0f6a\",\r\n    \"branchId\": \"3c03dcb3-d6ab-4551-9f5a-bd7a92f676b7\",\r\n    \"items\": [\r\n      {\r\n        \"productId\": \"ff520f8e-86b6-4e8a-80ea-bb0e23cfca38\",\r\n        \"quantity\": 5,\r\n        \"unitPrice\": 19.99\r\n      },\r\n      {\r\n        \"productId\": \"dd520f8e-86b6-4e8a-80ea-bb0e23cfca38\",\r\n        \"quantity\": 12,\r\n        \"unitPrice\": 9.99\r\n      },\r\n      {\r\n        \"productId\": \"af520f8e-86b6-4e8a-80ea-bb0e23cfca38\",\r\n        \"quantity\": 3,\r\n        \"unitPrice\": 29.99\r\n      }\r\n    ]\r\n  }\r\n\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -125,7 +125,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Camisa Polo Masculina\",\r\n  \"description\": \"Camisa polo masculina, 100% algodão, disponível em várias cores.\",\r\n  \"price\": 79.90,\r\n  \"stock\": 50,\r\n  \"imageUrl\": \"https://exemplo.com/camisa-polo.jpg\"\r\n}\r\n",
+					"raw": "{\r\n  \"price\": 99.99,\r\n  \"description\": \"High quality product with excellent features.\",\r\n  \"category\": \"Electronics\",\r\n  \"image\": \"https://example.com/product-image.jpg\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"

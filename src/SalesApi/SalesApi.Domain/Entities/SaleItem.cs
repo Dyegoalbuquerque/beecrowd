@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 namespace SalesApi.Domain.Entities;
 
 public class SaleItem
@@ -10,8 +8,20 @@ public class SaleItem
     }
     public Guid Id { get; set; }
     public Guid ProductId { get; set; }
-    public string ProductName { get; set; }
     public int Quantity { get; set; }
-    public decimal UnitPrice { get; set; }    
-    public decimal TotalAmount { get => Quantity * UnitPrice; set {} }
+    public decimal UnitPrice { get; set; }
+    public decimal ValueMonetaryTaxApplied
+    {
+        get => Quantity switch
+        {
+            >= 10 and <= 20 => 20m, // IVA Special
+            > 4 and < 10 => 10m,    // IVA Normal
+            _ => 0m                 // Free of IVA
+        };
+    }
+    public decimal Total
+    {
+        get => Quantity * UnitPrice + (Quantity * UnitPrice * (ValueMonetaryTaxApplied / 100));
+        set { }
+    }
 }

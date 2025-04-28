@@ -1,18 +1,20 @@
 version: '3.3'
 
 services:
-  gateway:
-    image: ocelot-gateway
-    build:
-      context: .
-      dockerfile: src/Gateway/Dockerfile
-    container_name: ocelot-gateway
-    ports:
-      - "0.0.0.0:7777:7777"
+  db:
+    image: postgres:latest
+    container_name: db
     environment:
-      - ASPNETCORE_URLS=http://+:7777
-    depends_on:
-      - sales-api
+      POSTGRES_DB: SalesApi
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres#2025@
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - evaluation-network
 
@@ -23,29 +25,31 @@ services:
       dockerfile: src/SalesApi/Dockerfile
     container_name: sales-api
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "8090:8090"
     environment:
       - ConnectionStrings__SalesApiDb=Host=db;Database=SalesApi;Username=postgres;Password=postgres#2025@;Port=5432
-
     networks:
       - evaluation-network
-    tty: true
 
-  db:
-    image: postgres:latest
-    container_name: db
-    environment:
-      POSTGRES_DB: SalesApi
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres#2025@
+  gateway:
+    image: ocelot-gateway
+    build:
+      context: .
+      dockerfile: src/Gateway/Dockerfile
+    container_name: ocelot-gateway
+    depends_on:
+      sales-api:
+        condition: service_started
     ports:
-      - "5433:5432"
+      - "7777:7777"
+    environment:
+      - ASPNETCORE_URLS=http://+:7777
     networks:
       - evaluation-network
 
 networks:
   evaluation-network:
-    external: true
-  
+    driver: bridge

@@ -28,23 +28,20 @@ namespace SalesApi.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
-
-                    b.Property<int>("Stock")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -57,11 +54,6 @@ namespace SalesApi.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Branch")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
                     b.Property<Guid>("BranchId")
                         .HasColumnType("uuid");
 
@@ -69,25 +61,16 @@ namespace SalesApi.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("uuid");
 
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("character varying(150)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<bool>("IsCancelled")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Nummber")
+                    b.Property<DateTime>("SaleDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("SaleNummber")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
-
-                    b.Property<decimal>("TaxValue")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("numeric(18,2)");
 
                     b.Property<decimal>("TotalAmount")
                         .HasPrecision(18, 2)
@@ -112,15 +95,10 @@ namespace SalesApi.Infrastructure.Migrations
                             b1.Property<Guid>("ProductId")
                                 .HasColumnType("uuid");
 
-                            b1.Property<string>("ProductName")
-                                .IsRequired()
-                                .HasMaxLength(150)
-                                .HasColumnType("character varying(150)");
-
                             b1.Property<int>("Quantity")
                                 .HasColumnType("integer");
 
-                            b1.Property<decimal>("TotalAmount")
+                            b1.Property<decimal>("Total")
                                 .HasPrecision(18, 2)
                                 .HasColumnType("numeric(18,2)");
 

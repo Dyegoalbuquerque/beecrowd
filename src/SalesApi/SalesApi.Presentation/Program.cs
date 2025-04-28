@@ -22,18 +22,33 @@ builder.Services.Configure<ApiBehaviorOptions>(options => { options.SuppressMode
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<SalesDbContext>();
+
+    var retries = 10;
+    while (retries > 0)
+    {
+        try
+        {
+            db.Database.Migrate();
+            break;
+        }
+        catch (Exception ex)
+        {
+            retries--;
+            Console.WriteLine($"Error apply migrations, trying again... ({retries})");
+            Thread.Sleep(2000);
+        }
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
-}
-
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<SalesDbContext>();
-    db.Database.Migrate();
 }
 
 app.UseAuthorization();

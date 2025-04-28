@@ -36,7 +36,7 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
         var product = _mapper.Map<Product>(request);
 
         await _productRepository.AddAsync(product);
-        await _mediator.Publish(new ProductCreatedNotification(new ProductCreatedEvent(product.Id, product.Name, DateTime.UtcNow)));
+        await _mediator.Publish(new ProductCreatedNotification(new ProductCreatedEvent(product.Id, product.Description, DateTime.UtcNow)));
 
         return new HandlerResult<Product>(true, "Product created successfully.", product);
     }

@@ -6,11 +6,6 @@ EXPOSE 8090
 # Install PostgreSQL client for database readiness check
 RUN apt-get update && apt-get install -y postgresql-client && rm -rf /var/lib/apt/lists/*
 
-# Copy the wait-for-db script to the container
-COPY src/SalesApi/wait-for-db.sh /app/
-
-# Make the script executable
-RUN chmod +x /app/wait-for-db.sh
 
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
@@ -46,5 +41,5 @@ COPY --from=publish /app/publish .
 
 ENV ASPNETCORE_URLS=http://+:8090
 
-# Add the wait-for-db script to the ENTRYPOINT
-ENTRYPOINT ["/app/wait-for-db.sh", "dotnet", "SalesApi.Presentation.dll"]
+# Add the wait-for-db script and the network creation to the ENTRYPOINT
+ENTRYPOINT ["dotnet", "SalesApi.Presentation.dll"]
