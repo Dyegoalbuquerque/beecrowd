@@ -12,7 +12,7 @@ using SalesApi.Infrastructure.Persistence;
 namespace SalesApi.Infrastructure.Migrations
 {
     [DbContext(typeof(SalesDbContext))]
-    [Migration("20250428011256_SalesDbMigration")]
+    [Migration("20250429134518_SalesDbMigration")]
     partial class SalesDbMigration
     {
         /// <inheritdoc />
@@ -104,6 +104,9 @@ namespace SalesApi.Infrastructure.Migrations
                             b1.Property<decimal>("Total")
                                 .HasPrecision(18, 2)
                                 .HasColumnType("numeric(18,2)");
+
+                            b1.Property<decimal>("TotalWithoutTax")
+                                .HasColumnType("numeric");
 
                             b1.Property<decimal>("UnitPrice")
                                 .HasPrecision(18, 2)

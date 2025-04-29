@@ -52,7 +52,8 @@ namespace SalesApi.Infrastructure.Migrations
                     ProductId = table.Column<Guid>(type: "uuid", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false),
                     UnitPrice = table.Column<decimal>(type: "numeric(18,2)", precision: 18, scale: 2, nullable: false),
-                    Total = table.Column<decimal>(type: "numeric(18,2)", precision: 18, scale: 2, nullable: false)
+                    Total = table.Column<decimal>(type: "numeric(18,2)", precision: 18, scale: 2, nullable: false),
+                    TotalWithoutTax = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {
