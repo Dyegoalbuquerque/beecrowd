@@ -21,6 +21,11 @@
     <Compile Include="Entities\Sale.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\SaleItem.cs" />
+    <Compile Include="Services\Tax\ITax.cs" />
+    <Compile Include="Services\Tax\IVAFactory.cs" />
+    <Compile Include="Services\Tax\IVAFree.cs" />
+    <Compile Include="Services\Tax\IVANormal.cs" />
+    <Compile Include="Services\Tax\IVASpecial.cs" />
     <Compile Include="Events\SaleCreatedEvent.cs" />
     <Compile Include="Events\SaleCancelledEvent.cs" />
     <Compile Include="Events\ProductCreatedEvent.cs" />

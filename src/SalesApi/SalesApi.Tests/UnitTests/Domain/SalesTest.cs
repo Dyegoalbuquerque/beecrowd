@@ -11,9 +11,13 @@ public class SalesTest
       
         sale.CalculateSale();
 
-        var result = sale.Items.Any(i => i.ValueMonetaryTaxApplied == 10);
+        sale.Items.ToList()
+                  .ForEach(item =>
+                  {
+                     var iva = item.ValueMonetaryTaxApplied / item.TotalWithoutTax; 
 
-        Assert.True(result);
+                     Assert.Equal(0.10m, iva, precision: 2);
+                  });
     }
 
     [Fact(DisplayName = "Sale between 10 and 20 identical items have a 20% IVA")]
@@ -22,10 +26,13 @@ public class SalesTest
         var sale = SaleFaker.GetSaleFaker(5, 12).Generate();
 
         sale.CalculateSale();
+        sale.Items.ToList()
+                  .ForEach(item =>
+                  {
+                      var iva = item.ValueMonetaryTaxApplied / item.TotalWithoutTax;
 
-        var result = sale.Items.Any(i => 20 == i.ValueMonetaryTaxApplied);
-
-        Assert.True(result);
+                      Assert.Equal(0.20m, iva, precision: 2);
+                  });
     }
 
     [Fact(DisplayName = "Sale below 4 items cannot have a IVA")]
@@ -34,9 +41,12 @@ public class SalesTest
         var sale = SaleFaker.GetSaleFaker(5, 3).Generate();
 
         sale.CalculateSale();
+        sale.Items.ToList()
+                  .ForEach(item =>
+                  {
+                      var iva = item.ValueMonetaryTaxApplied / item.TotalWithoutTax;
 
-        var result = sale.Items.Any(i => 0 == i.ValueMonetaryTaxApplied);
-
-        Assert.True(result);
+                      Assert.Equal(0m, iva, precision: 2);
+                  });
     }
 }

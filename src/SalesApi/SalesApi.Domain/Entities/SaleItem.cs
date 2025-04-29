@@ -1,3 +1,5 @@
+using SalesApi.Domain.Services.Tax;
+
 namespace SalesApi.Domain.Entities;
 
 public class SaleItem
@@ -12,16 +14,17 @@ public class SaleItem
     public decimal UnitPrice { get; set; }
     public decimal ValueMonetaryTaxApplied
     {
-        get => Quantity switch
-        {
-            >= 10 and <= 20 => 20m, // IVA Special
-            > 4 and < 10 => 10m,    // IVA Normal
-            _ => 0m                 // Free of IVA
-        };
+        get => IVAFactory.CreateTax(Quantity).CalculateTax(Quantity * UnitPrice);
     }
     public decimal Total
     {
-        get => Quantity * UnitPrice + (Quantity * UnitPrice * (ValueMonetaryTaxApplied / 100));
+        get => Quantity * UnitPrice + (ValueMonetaryTaxApplied);
+        set { }
+    }
+
+    public decimal TotalWithoutTax
+    {
+        get => Quantity * UnitPrice;
         set { }
     }
 }
