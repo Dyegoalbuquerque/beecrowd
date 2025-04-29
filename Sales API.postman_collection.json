@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "4e9a4ce6-8558-4ff4-9a9a-cdbf0c4d95a9",
+		"name": "Sales API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44474284",
+		"_collection_link": "https://galactic-rocket-173986.postman.co/workspace/New-Team-Workspace~fe2fe9c4-b220-47ea-8f6e-4eaaf5112c74/collection/44474284-4e9a4ce6-8558-4ff4-9a9a-cdbf0c4d95a9?action=share&source=collection_link&creator=44474284"
+	},
+	"item": [
+		{
+			"name": "Cancel sale",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Adress gateway}}/sale/dd8a8ff6-40da-4443-9d90-0a0acdeae587",
+					"host": [
+						"{{Adress gateway}}"
+					],
+					"path": [
+						"sale",
+						"dd8a8ff6-40da-4443-9d90-0a0acdeae587"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get sales",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Adress gateway}}/sale",
+					"host": [
+						"{{Adress gateway}}"
+					],
+					"path": [
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create sale",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n  {\r\n    \"saleNumber\": \"4582\",\r\n    \"saleDate\": \"2025-04-28T01:00:36.330Z\",\r\n    \"customerId\": \"b3fc6f85-6b75-40a0-869d-8a2cfe9e0f6a\",\r\n    \"branchId\": \"3c03dcb3-d6ab-4551-9f5a-bd7a92f676b7\",\r\n    \"items\": [\r\n      {\r\n        \"productId\": \"ff520f8e-86b6-4e8a-80ea-bb0e23cfca38\",\r\n        \"quantity\": 5,\r\n        \"unitPrice\": 19.99\r\n      },\r\n      {\r\n        \"productId\": \"dd520f8e-86b6-4e8a-80ea-bb0e23cfca38\",\r\n        \"quantity\": 12,\r\n        \"unitPrice\": 9.99\r\n      },\r\n      {\r\n        \"productId\": \"af520f8e-86b6-4e8a-80ea-bb0e23cfca38\",\r\n        \"quantity\": 3,\r\n        \"unitPrice\": 29.99\r\n      }\r\n    ]\r\n  }\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Adress gateway}}/sale",
+					"host": [
+						"{{Adress gateway}}"
+					],
+					"path": [
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Adress gateway}}/product",
+					"host": [
+						"{{Adress gateway}}"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"price\": 99.99,\r\n  \"description\": \"High quality product with excellent features.\",\r\n  \"category\": \"Electronics\",\r\n  \"image\": \"https://example.com/product-image.jpg\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Adress gateway}}/product",
+					"host": [
+						"{{Adress gateway}}"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Sales API",
+			"value": "http://localhost:7777"
+		}
+	]
+}

@@ -1,0 +1,43 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/product",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "sales-api",
+          "Port": 8090
+        }
+      ],
+      "UpstreamPathTemplate": "/product",
+      "UpstreamHttpMethod": ["POST", "GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/sale",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "sales-api",
+          "Port": 8090
+        }
+      ],
+      "UpstreamPathTemplate": "/sale",
+      "UpstreamHttpMethod": ["POST", "GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/sale/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "sales-api",
+          "Port": 8090
+        }
+      ],
+      "UpstreamPathTemplate": "/sale/{id}",
+      "UpstreamHttpMethod": ["DELETE"]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://ocelot-gateway:7777"
+  }
+}
